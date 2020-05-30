@@ -46,18 +46,53 @@ namespace Laboratorio08_jcg
         }
         static void Activarlistalocales()
         {
-            locales = CargarLocal();
+            try
+            {
+                locales = CargarLocal();
+
+            }
+            catch
+            {
+
+                AlmacenarLocal(locales);
+
+            }
         }
 
         public static bool Agregartienda(Tienda t)
         {
-            locales = CargarLocal();
+            Activarlistalocales();
             locales.Add(t);
             AlmacenarLocal(locales);
             MessageBox.Show("TIENDA AGREGADA EXITOSAMENTE", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
             return true;
         }
+        public static bool Agregarcine(Cine t)
+        {
+            Activarlistalocales();
+            locales.Add(t);
+            AlmacenarLocal(locales);
+            MessageBox.Show("CINE AGREGADO EXITOSAMENTE", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+            return true;
+        }
+        public static bool Agregarrestau(Restaurante t)
+        {
+            Activarlistalocales();
+            locales.Add(t);
+            AlmacenarLocal(locales);
+            MessageBox.Show("RESTATURANTE AGREGADO EXITOSAMENTE", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+            return true;
+        }
+        public static bool Agregarrecrea(Recreacional t)
+        {
+            Activarlistalocales();
+            locales.Add(t);
+            AlmacenarLocal(locales);
+            MessageBox.Show("RESTATURANTE AGREGADO EXITOSAMENTE", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+            return true;
+        }
 
-            
+
+
     }
 }
