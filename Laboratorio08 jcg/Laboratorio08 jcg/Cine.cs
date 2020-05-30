@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Laboratorio08_jcg
 {
@@ -20,7 +21,14 @@ namespace Laboratorio08_jcg
             this.Id = id;
             this.Horarioatencion = fecha;
             this.Numerosalas = numerosalas;
+            this.Tipo = 1;
 
+        }
+
+        public string InformacionCine()
+        {
+            string informacion2 = ("NOMBRE CINE: " + Nombrelocal + " DUEÑO: " + Nombredueño + " ID: " + Id + " HORARIO: " + Horarioatencion + " NUMERO SALAS: " + Numerosalas);
+            return informacion2;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Laboratorio08_jcg
 
     public partial class Form1 : Form
     {
-        List<string> listacat = new List<string>();
+        public static List<string> listacat = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -32,7 +32,8 @@ namespace Laboratorio08_jcg
 
         private void btn_buscar_local_Click(object sender, EventArgs e)
         {
-
+            panel_buscar_local.Visible = true;
+            panel_buscar_local.Dock = DockStyle.Fill;
         }
 
         private void btn_crear_tienda_Click(object sender, EventArgs e)
@@ -93,7 +94,7 @@ namespace Laboratorio08_jcg
                 comboBox2.Visible = false;
                 comboBox3.Visible = false;
                 comboBox4.Visible = false;
-                listacat.Add(comboBox1.Text);
+                
 
 
             }
@@ -103,8 +104,7 @@ namespace Laboratorio08_jcg
                 comboBox2.Visible = true;
                 comboBox3.Visible = false;
                 comboBox4.Visible = false;
-                listacat.Add(comboBox1.Text);
-                listacat.Add(comboBox2.Text);
+                
             }
             if (textBox_cantidad_categorias.Text == "3")
             {
@@ -112,9 +112,7 @@ namespace Laboratorio08_jcg
                 comboBox2.Visible = true;
                 comboBox3.Visible = true;
                 comboBox4.Visible = false;
-                listacat.Add(comboBox1.Text);
-                listacat.Add(comboBox2.Text);
-                listacat.Add(comboBox3.Text);
+                
 
             }
             if (textBox_cantidad_categorias.Text == "4")
@@ -123,10 +121,7 @@ namespace Laboratorio08_jcg
                 comboBox2.Visible = true;
                 comboBox3.Visible = true;
                 comboBox4.Visible = true;
-                listacat.Add(comboBox1.Text);
-                listacat.Add(comboBox2.Text);
-                listacat.Add(comboBox3.Text);
-                listacat.Add(comboBox4.Text);
+                
             }
             
         }
@@ -158,7 +153,34 @@ namespace Laboratorio08_jcg
 
         private void btn_agregar_tienda_Click(object sender, EventArgs e)
         {
+            if (textBox_cantidad_categorias.Text == "1")
+            {
+                
+                listacat.Add(comboBox1.Text);
 
+
+            }
+            if (textBox_cantidad_categorias.Text == "2")
+            {
+                
+                listacat.Add(comboBox1.Text);
+                listacat.Add(comboBox2.Text);
+            }
+            if (textBox_cantidad_categorias.Text == "3")
+            {
+                
+                listacat.Add(comboBox1.Text);
+                listacat.Add(comboBox2.Text);
+                listacat.Add(comboBox3.Text);
+
+            }
+            if (textBox_cantidad_categorias.Text == "4")
+            {
+                listacat.Add(comboBox1.Text);
+                listacat.Add(comboBox2.Text);
+                listacat.Add(comboBox3.Text);
+                listacat.Add(comboBox4.Text);
+            }
             Tienda t = new Tienda(textBox_nombre_tienda.Text, textBox_nombre_dueño.Text, int.Parse(textBox_id.Text), textBox_horario.Text, listacat);
             CentroComercial.Agregartienda(t);
         }
@@ -287,6 +309,23 @@ namespace Laboratorio08_jcg
         private void textBox_horario_recreacional_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        // BUSCADOR ////////////////////////////////////////////////////////////////////////////////////////7
+        private void btn_atras_buscar_Click(object sender, EventArgs e)
+        {
+            panel_buscar_local.Visible = false;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Visible = true;
+            listBox1.Items.Add(CentroComercial.Buscarlocal(textBox1.Text));
+            
         }
     }
 }

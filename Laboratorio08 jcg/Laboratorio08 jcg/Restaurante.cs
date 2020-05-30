@@ -20,6 +20,14 @@ namespace Laboratorio08_jcg
             this.Id = id;
             this.Horarioatencion = fecha;
             this.Tenermesaexclusiva = mesaexclusiva;
+            this.Tipo = 3;
+        }
+
+        public string InformacionRestaurante()
+        {
+            string informacion2 = ("NOMBRE TIENDA: " + Nombrelocal + " DUEÑO: " + Nombredueño + " ID: " + Id + " HORARIO: " + Horarioatencion + "MESAS EXCLUSIVAS: " + Tenermesaexclusiva);
+
+            return informacion2;
         }
     }
 }

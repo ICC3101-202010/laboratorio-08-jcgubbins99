@@ -99,11 +99,18 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
+            this.panel_buscar_local = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_atras_buscar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel_agregar_local.SuspendLayout();
             this.panel_agregar_tienda.SuspendLayout();
             this.panel_agregar_cine.SuspendLayout();
             this.panel_agregar_restau.SuspendLayout();
             this.panel_agregaer_recreacional.SuspendLayout();
+            this.panel_buscar_local.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -177,9 +184,9 @@
             this.panel_agregar_local.Controls.Add(this.btn_crear_cine);
             this.panel_agregar_local.Controls.Add(this.btn_crear_tienda);
             this.panel_agregar_local.Controls.Add(this.label3);
-            this.panel_agregar_local.Location = new System.Drawing.Point(489, 173);
+            this.panel_agregar_local.Location = new System.Drawing.Point(493, 173);
             this.panel_agregar_local.Name = "panel_agregar_local";
-            this.panel_agregar_local.Size = new System.Drawing.Size(47, 33);
+            this.panel_agregar_local.Size = new System.Drawing.Size(43, 38);
             this.panel_agregar_local.TabIndex = 5;
             this.panel_agregar_local.Visible = false;
             this.panel_agregar_local.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_agregar_local_Paint);
@@ -993,12 +1000,80 @@
             this.label28.TabIndex = 4;
             this.label28.Text = "RECREACIONAL";
             // 
+            // panel_buscar_local
+            // 
+            this.panel_buscar_local.Controls.Add(this.listBox1);
+            this.panel_buscar_local.Controls.Add(this.button2);
+            this.panel_buscar_local.Controls.Add(this.btn_atras_buscar);
+            this.panel_buscar_local.Controls.Add(this.textBox1);
+            this.panel_buscar_local.Controls.Add(this.label23);
+            this.panel_buscar_local.Location = new System.Drawing.Point(-2, -1);
+            this.panel_buscar_local.Name = "panel_buscar_local";
+            this.panel_buscar_local.Size = new System.Drawing.Size(802, 454);
+            this.panel_buscar_local.TabIndex = 6;
+            this.panel_buscar_local.Visible = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label23.Location = new System.Drawing.Point(52, 23);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(543, 39);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "INGRESE EL NOMBRE DEL LOCAL";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Lucida Sans Unicode", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(85, 73);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(401, 37);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btn_atras_buscar
+            // 
+            this.btn_atras_buscar.BackColor = System.Drawing.Color.Gray;
+            this.btn_atras_buscar.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_atras_buscar.Location = new System.Drawing.Point(647, 20);
+            this.btn_atras_buscar.Name = "btn_atras_buscar";
+            this.btn_atras_buscar.Size = new System.Drawing.Size(129, 50);
+            this.btn_atras_buscar.TabIndex = 8;
+            this.btn_atras_buscar.Text = "Atrás";
+            this.btn_atras_buscar.UseVisualStyleBackColor = false;
+            this.btn_atras_buscar.Click += new System.EventHandler(this.btn_atras_buscar_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Gray;
+            this.button2.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(199, 118);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(129, 50);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(23, 184);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(754, 251);
+            this.listBox1.TabIndex = 10;
+            this.listBox1.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel_buscar_local);
             this.Controls.Add(this.panel_agregar_local);
             this.Controls.Add(this.btn_ver_locales);
             this.Controls.Add(this.btn_buscar_local);
@@ -1018,6 +1093,8 @@
             this.panel_agregar_restau.PerformLayout();
             this.panel_agregaer_recreacional.ResumeLayout(false);
             this.panel_agregaer_recreacional.PerformLayout();
+            this.panel_buscar_local.ResumeLayout(false);
+            this.panel_buscar_local.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1096,6 +1173,12 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Panel panel_buscar_local;
+        private System.Windows.Forms.Button btn_atras_buscar;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

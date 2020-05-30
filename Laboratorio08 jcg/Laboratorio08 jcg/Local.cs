@@ -13,10 +13,11 @@ namespace Laboratorio08_jcg
         private string nombredueño;
         private int id;
         private string horarioatencion;
-
+        private int tipo; //1: Cine,2: Tienda
         public string Nombredueño { get => nombredueño; set => nombredueño = value; }
         public int Id { get => id; set => id = value; }
         public string Horarioatencion { get => horarioatencion; set => horarioatencion = value; }
         public string Nombrelocal { get => nombrelocal; set => nombrelocal = value; }
+        public int Tipo { get => tipo; set => tipo = value; }
     }
 }

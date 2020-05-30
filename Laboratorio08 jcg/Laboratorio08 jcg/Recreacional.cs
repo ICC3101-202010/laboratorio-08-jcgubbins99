@@ -16,6 +16,13 @@ namespace Laboratorio08_jcg
             this.Nombredueño = nombresdueño;
             this.Id = id;
             this.Horarioatencion = fecha;
+            this.Tipo = 4;
+        }
+        public string infoRecrea()
+        {
+            string informacion2 = ("NOMBRE TIENDA: " + Nombrelocal + " DUEÑO: " + Nombredueño + " ID: " + Id + " HORARIO: " + Horarioatencion);
+
+            return informacion2;
         }
     }
 }

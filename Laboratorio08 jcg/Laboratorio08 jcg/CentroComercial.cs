@@ -38,10 +38,13 @@ namespace Laboratorio08_jcg
                 return s2;
 
             }
+            
             catch
             {
                 throw new Exception();
+                
             }
+
 
         }
         static void Activarlistalocales()
@@ -53,7 +56,7 @@ namespace Laboratorio08_jcg
             }
             catch
             {
-
+                MessageBox.Show("NO HAY LOCALES PRA BUSCAR, SI ACABAS DE CREAR UNO SE ALMACENARÁ EN LA BASE DE DATOS", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
                 AlmacenarLocal(locales);
 
             }
@@ -90,6 +93,55 @@ namespace Laboratorio08_jcg
             AlmacenarLocal(locales);
             MessageBox.Show("RESTATURANTE AGREGADO EXITOSAMENTE", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
             return true;
+        }
+        public static string Buscarlocal(string nombre)
+        {
+            Activarlistalocales();
+            string info = "";
+            for (int i = 0; i < locales.Count; i++)
+            {
+                if (locales.Count == 0)
+                {
+                    MessageBox.Show("NO HAY LOCALES AGREGADOS AUN", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
+                if (locales[i].Nombrelocal == nombre)
+                {
+                    switch (locales[i].Tipo)
+                    {
+                        case 1:
+                            Cine cine = (Cine)locales[i];
+                            return cine.InformacionCine();
+                        case 2:
+                            Tienda tienda = (Tienda)locales[i];
+                            return tienda.InformacionTienda();
+                        case 3:
+                            Restaurante res = (Restaurante)locales[i];
+                            return res.InformacionRestaurante();
+                        case 4:
+                            Recreacional recrea = (Recreacional)locales[i];
+                            return recrea.infoRecrea();
+                        default:
+                            MessageBox.Show("INGRESE BIEN EL NOMBRE DEL LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                            
+                            
+
+                    }
+
+                    
+                   
+                    
+                }
+                else
+                {
+                    MessageBox.Show("INGRESE BIEN EL NOMBRE DEL LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
+                
+            }
+            return info;
+            
         }
 
 
