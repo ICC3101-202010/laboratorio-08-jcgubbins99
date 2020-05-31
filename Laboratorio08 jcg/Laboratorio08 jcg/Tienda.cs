@@ -10,8 +10,8 @@ namespace Laboratorio08_jcg
     [Serializable]
     class Tienda:Local
     {
-        
-        public Tienda(string nombrelocal, string duenio, int id, string fecha, List<string> listacategorias)
+        public List<string> categorias = new List<string>();
+        public Tienda(string nombrelocal, string duenio, int id, string fecha)
         {
             this.Nombrelocal = nombrelocal;
             this.Nombredueño = duenio;
@@ -25,9 +25,9 @@ namespace Laboratorio08_jcg
         public string verinfocategorias()
         {
             string info2 = "";
-            for (int i = 0; i < Form1.listacat.Count; i++)
+            for (int i = 0; i < categorias.Count; i++)
             {
-                info2 += Form1.listacat[i] +", ";
+                info2 += categorias[i] +", ";
 
             }
             return info2;

@@ -7,6 +7,8 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+using System.Security.Cryptography.X509Certificates;
+using System.ComponentModel.Design;
 
 namespace Laboratorio08_jcg
 {
@@ -38,16 +40,16 @@ namespace Laboratorio08_jcg
                 return s2;
 
             }
-            
+
             catch
             {
                 throw new Exception();
-                
+
             }
 
 
         }
-        static void Activarlistalocales()
+        public static void Activarlistalocales()
         {
             try
             {
@@ -56,7 +58,7 @@ namespace Laboratorio08_jcg
             }
             catch
             {
-                MessageBox.Show("NO HAY LOCALES PRA BUSCAR, SI ACABAS DE CREAR UNO SE ALMACENARÁ EN LA BASE DE DATOS", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show("NO HAY LOCALES PARA BUSCAR, SI ACABAS DE CREAR UNO SE ALMACENARÁ EN LA BASE DE DATOS", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
                 AlmacenarLocal(locales);
 
             }
@@ -64,7 +66,23 @@ namespace Laboratorio08_jcg
 
         public static bool Agregartienda(Tienda t)
         {
+            
             Activarlistalocales();
+            for (int i = 0; i < locales.Count; i++)
+            {
+                if (t.Id == locales[i].Id)
+                {
+                    MessageBox.Show("EL ID INGRESADO YA PERTENECE A UN LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (t.Nombrelocal == locales[i].Nombrelocal)
+                {
+                    MessageBox.Show("EL NOMBRE DEL LOCAL INGRESADO YA PERTENECE A UN LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+            }
+
             locales.Add(t);
             AlmacenarLocal(locales);
             MessageBox.Show("TIENDA AGREGADA EXITOSAMENTE", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -73,6 +91,20 @@ namespace Laboratorio08_jcg
         public static bool Agregarcine(Cine t)
         {
             Activarlistalocales();
+            for (int i = 0; i < locales.Count; i++)
+            {
+                if (t.Id == locales[i].Id)
+                {
+                    MessageBox.Show("EL ID INGRESADO YA PERTENECE A UN LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (t.Nombrelocal == locales[i].Nombrelocal)
+                {
+                    MessageBox.Show("EL NOMBRE DEL LOCAL INGRESADO YA PERTENECE A UN LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+            }
             locales.Add(t);
             AlmacenarLocal(locales);
             MessageBox.Show("CINE AGREGADO EXITOSAMENTE", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -81,6 +113,20 @@ namespace Laboratorio08_jcg
         public static bool Agregarrestau(Restaurante t)
         {
             Activarlistalocales();
+            for (int i = 0; i < locales.Count; i++)
+            {
+                if (t.Id == locales[i].Id)
+                {
+                    MessageBox.Show("EL ID INGRESADO YA PERTENECE A UN LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (t.Nombrelocal == locales[i].Nombrelocal)
+                {
+                    MessageBox.Show("EL NOMBRE DEL LOCAL INGRESADO YA PERTENECE A UN LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+            }
             locales.Add(t);
             AlmacenarLocal(locales);
             MessageBox.Show("RESTATURANTE AGREGADO EXITOSAMENTE", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -88,7 +134,24 @@ namespace Laboratorio08_jcg
         }
         public static bool Agregarrecrea(Recreacional t)
         {
+
             Activarlistalocales();
+            for (int i = 0; i < locales.Count; i++)
+            {
+                if (t.Id == locales[i].Id)
+                {
+                    MessageBox.Show("EL ID INGRESADO YA PERTENECE A UN LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (t.Nombrelocal == locales[i].Nombrelocal)
+                {
+                    MessageBox.Show("EL NOMBRE DEL LOCAL INGRESADO YA PERTENECE A UN LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+
+
+            }
             locales.Add(t);
             AlmacenarLocal(locales);
             MessageBox.Show("RESTATURANTE AGREGADO EXITOSAMENTE", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -98,52 +161,56 @@ namespace Laboratorio08_jcg
         {
             Activarlistalocales();
             string info = "";
+            if (locales.Count == 0)
+            {
+                MessageBox.Show("NO HAY LOCALES AGREGADOS AUN", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
             for (int i = 0; i < locales.Count; i++)
             {
-                if (locales.Count == 0)
-                {
-                    MessageBox.Show("NO HAY LOCALES AGREGADOS AUN", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
-                }
+                
                 if (locales[i].Nombrelocal == nombre)
                 {
                     switch (locales[i].Tipo)
                     {
                         case 1:
                             Cine cine = (Cine)locales[i];
-                            return cine.InformacionCine();
+                            info = cine.InformacionCine();
+                            break;
                         case 2:
                             Tienda tienda = (Tienda)locales[i];
-                            return tienda.InformacionTienda();
+                            info = tienda.InformacionTienda();
+                            break;
                         case 3:
                             Restaurante res = (Restaurante)locales[i];
-                            return res.InformacionRestaurante();
+                            info = res.InformacionRestaurante();
+                            break;
                         case 4:
                             Recreacional recrea = (Recreacional)locales[i];
-                            return recrea.infoRecrea();
-                        default:
-                            MessageBox.Show("INGRESE BIEN EL NOMBRE DEL LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            info = recrea.infoRecrea();
                             break;
-                            
-                            
+
+
+
 
                     }
 
-                    
-                   
-                    
+
+
+
                 }
-                else
-                {
-                    MessageBox.Show("INGRESE BIEN EL NOMBRE DEL LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
-                }
-                
+
+
+            }
+            if (info == "")
+            {
+                MessageBox.Show("INGRESE BIEN EL NOMBRE DEL LOCAL", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return info;
-            
+
         }
 
+        
 
 
     }

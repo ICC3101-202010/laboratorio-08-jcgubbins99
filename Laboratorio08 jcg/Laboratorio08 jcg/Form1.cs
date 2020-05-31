@@ -87,7 +87,7 @@ namespace Laboratorio08_jcg
 
         private void textBox_cantidad_categorias_TextChanged(object sender, EventArgs e)
         {
-            listacat.Clear();
+            
             if(textBox_cantidad_categorias.Text == "1")
             {
                 comboBox1.Visible = true;
@@ -153,36 +153,73 @@ namespace Laboratorio08_jcg
 
         private void btn_agregar_tienda_Click(object sender, EventArgs e)
         {
+            listacat.Clear();
             if (textBox_cantidad_categorias.Text == "1")
             {
-                
-                listacat.Add(comboBox1.Text);
+                try
+                {
+
+                    Tienda t = new Tienda(textBox_nombre_tienda.Text.ToLower(), textBox_nombre_dueño.Text.ToLower(), int.Parse(textBox_id.Text), textBox_horario.Text.ToLower());
+                    t.categorias.Add(comboBox1.Text);
+                    CentroComercial.Agregartienda(t);
+                    listacat.Add(comboBox1.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("EL ID TIENE QUE SER UN NUMERO", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
 
             }
             if (textBox_cantidad_categorias.Text == "2")
             {
-                
-                listacat.Add(comboBox1.Text);
-                listacat.Add(comboBox2.Text);
+                try
+                {
+                    Tienda t = new Tienda(textBox_nombre_tienda.Text.ToLower(), textBox_nombre_dueño.Text.ToLower(), int.Parse(textBox_id.Text), textBox_horario.Text.ToLower());
+                    t.categorias.Add(comboBox1.Text);
+                    t.categorias.Add(comboBox2.Text);
+                    CentroComercial.Agregartienda(t);
+                }
+                catch
+                {
+                    MessageBox.Show("EL ID TIENE QUE SER UN NUMERO", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
             }
             if (textBox_cantidad_categorias.Text == "3")
             {
+                try
+                {
+                    Tienda t = new Tienda(textBox_nombre_tienda.Text.ToLower(), textBox_nombre_dueño.Text.ToLower(), int.Parse(textBox_id.Text), textBox_horario.Text.ToLower());
+                    t.categorias.Add(comboBox1.Text);
+                    t.categorias.Add(comboBox2.Text);
+                    t.categorias.Add(comboBox3.Text);
+                    CentroComercial.Agregartienda(t);
+                }
+                catch
+                {
+                    MessageBox.Show("EL ID TIENE QUE SER UN NUMERO", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 
-                listacat.Add(comboBox1.Text);
-                listacat.Add(comboBox2.Text);
-                listacat.Add(comboBox3.Text);
 
             }
             if (textBox_cantidad_categorias.Text == "4")
             {
-                listacat.Add(comboBox1.Text);
-                listacat.Add(comboBox2.Text);
-                listacat.Add(comboBox3.Text);
-                listacat.Add(comboBox4.Text);
+                try
+                {
+                    Tienda t = new Tienda(textBox_nombre_tienda.Text.ToLower(), textBox_nombre_dueño.Text.ToLower(), int.Parse(textBox_id.Text), textBox_horario.Text.ToLower());
+                    t.categorias.Add(comboBox1.Text);
+                    t.categorias.Add(comboBox2.Text);
+                    t.categorias.Add(comboBox3.Text);
+                    t.categorias.Add(comboBox4.Text);
+                    CentroComercial.Agregartienda(t);
+                }
+                catch
+                {
+                    MessageBox.Show("EL ID TIENE QUE SER UN NUMERO", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            Tienda t = new Tienda(textBox_nombre_tienda.Text, textBox_nombre_dueño.Text, int.Parse(textBox_id.Text), textBox_horario.Text, listacat);
-            CentroComercial.Agregartienda(t);
+            
         }
 
         private void panel_agregar_tienda_Paint(object sender, PaintEventArgs e)
@@ -193,18 +230,33 @@ namespace Laboratorio08_jcg
         private void button1_Click_1(object sender, EventArgs e)
         {
             panel_agregar_tienda.Visible = false;
+            textBox_nombre_tienda.Clear();
+            textBox_nombre_dueño.Clear();
+            textBox_id.Clear();
+            textBox_horario.Clear();
         }
         // /////////////////////////////////////////////////////AGREGAR CINE/////////////////////////////////////////////////////////////////77
         private void btn_agregar_cine_Click(object sender, EventArgs e)
         {
-
-            Cine c = new Cine(textBox_nombre_cine.Text, textBox_nombre_dueño_cine.Text,int.Parse(textBox_id_cine.Text), textBox_horario_cine.Text, int.Parse(textBox_numero_de_salas.Text));
-            CentroComercial.Agregarcine(c);
+            try
+            {
+                Cine c = new Cine(textBox_nombre_cine.Text.ToLower(), textBox_nombre_dueño_cine.Text.ToLower(), int.Parse(textBox_id_cine.Text), textBox_horario_cine.Text.ToLower(), int.Parse(textBox_numero_de_salas.Text));
+                CentroComercial.Agregarcine(c);
+            }
+            catch
+            {
+                MessageBox.Show("EL ID Y EL NUMERO DE SALAS TIENE QUE SER UN NUMERO", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_atras_cine_Click(object sender, EventArgs e)
         {
             panel_agregar_cine.Visible = false;
+            textBox_nombre_cine.Clear();
+            textBox_nombre_dueño_cine.Clear();
+            textBox_id_cine.Clear();
+            textBox_horario_cine.Clear();
+            textBox_numero_de_salas.Clear();
 
         }
 
@@ -236,13 +288,25 @@ namespace Laboratorio08_jcg
         private void btn_atras_agregar_restaurante_Click(object sender, EventArgs e)
         {
             panel_agregar_restau.Visible = false;
+            textBox_nombre_lrestau.Clear();
+            textBox_dueño_restau.Clear();
+            textBox_id_restau.Clear();
+            textBox_horario_restau.Clear();
+            textBox_mesas_reservadas.Clear();
 
         }
 
         private void btn_agregar_restaurante_Click(object sender, EventArgs e)
         {
-            Restaurante r = new Restaurante(textBox_nombre_lrestau.Text, textBox_dueño_restau.Text, int.Parse(textBox_id_restau.Text), textBox_horario_restau.Text, textBox_mesas_reservadas.Text);
-            CentroComercial.Agregarrestau(r);
+            try
+            {
+                Restaurante r = new Restaurante(textBox_nombre_lrestau.Text.ToLower(), textBox_dueño_restau.Text.ToLower(), int.Parse(textBox_id_restau.Text), textBox_horario_restau.Text, textBox_mesas_reservadas.Text.ToLower());
+                CentroComercial.Agregarrestau(r);
+            }
+            catch
+            {
+                MessageBox.Show("EL ID TIENE QUE SER UN NUMERO", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBox_nombre_lrestau_TextChanged(object sender, EventArgs e)
@@ -283,12 +347,23 @@ namespace Laboratorio08_jcg
         private void btn_atras_agregar_recrea_Click(object sender, EventArgs e)
         {
             panel_agregaer_recreacional.Visible = false;
+            textBox_nombre_recreacional.Clear();
+            textBox_id_recreacional.Clear();
+            textBox_dueño_recreacional.Clear();
+            textBox_horario_recreacional.Clear();
         }
 
         private void btn_agregae_recreacional_Click(object sender, EventArgs e)
         {
-            Recreacional re = new Recreacional(textBox_nombre_recreacional.Text, textBox_dueño_recreacional.Text, int.Parse(textBox_id_recreacional.Text), textBox_horario_recreacional.Text);
-            CentroComercial.Agregarrecrea(re);
+            try
+            {
+                Recreacional re = new Recreacional(textBox_nombre_recreacional.Text.ToLower(), textBox_dueño_recreacional.Text.ToLower(), int.Parse(textBox_id_recreacional.Text), textBox_horario_recreacional.Text.ToLower());
+                CentroComercial.Agregarrecrea(re);
+            }
+            catch
+            {
+                MessageBox.Show("EL ID TIENE QUE SER UN NUMERO", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBox_nombre_recreacional_TextChanged(object sender, EventArgs e)
@@ -314,6 +389,8 @@ namespace Laboratorio08_jcg
         private void btn_atras_buscar_Click(object sender, EventArgs e)
         {
             panel_buscar_local.Visible = false;
+            textBox1.Clear();
+            listBox1.Items.Clear();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -323,9 +400,16 @@ namespace Laboratorio08_jcg
 
         private void button2_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             listBox1.Visible = true;
-            listBox1.Items.Add(CentroComercial.Buscarlocal(textBox1.Text));
+            listBox1.Items.Add(CentroComercial.Buscarlocal(textBox1.Text.ToLower()));
             
+        }
+
+        private void btn_ver_locales_Click(object sender, EventArgs e)
+        {
+            VER_LOCALES vER_LOCALES  = new VER_LOCALES();
+            vER_LOCALES.Show();
         }
     }
 }

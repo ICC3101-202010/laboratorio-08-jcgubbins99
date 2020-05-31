@@ -20,7 +20,7 @@ namespace Laboratorio08_jcg
         }
         public string infoRecrea()
         {
-            string informacion2 = ("NOMBRE TIENDA: " + Nombrelocal + " DUEÑO: " + Nombredueño + " ID: " + Id + " HORARIO: " + Horarioatencion);
+            string informacion2 = ("NOMBRE RECREACIONAL: " + Nombrelocal + " DUEÑO: " + Nombredueño + " ID: " + Id + " HORARIO: " + Horarioatencion);
 
             return informacion2;
         }

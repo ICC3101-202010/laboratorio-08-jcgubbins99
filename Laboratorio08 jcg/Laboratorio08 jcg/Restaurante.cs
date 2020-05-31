@@ -25,7 +25,7 @@ namespace Laboratorio08_jcg
 
         public string InformacionRestaurante()
         {
-            string informacion2 = ("NOMBRE TIENDA: " + Nombrelocal + " DUEÑO: " + Nombredueño + " ID: " + Id + " HORARIO: " + Horarioatencion + "MESAS EXCLUSIVAS: " + Tenermesaexclusiva);
+            string informacion2 = ("NOMBRE RESTAURANTE: " + Nombrelocal + " DUEÑO: " + Nombredueño + " ID: " + Id + " HORARIO: " + Horarioatencion + " MESAS EXCLUSIVAS: " + Tenermesaexclusiva);
 
             return informacion2;
         }
