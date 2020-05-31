@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Windows.Forms;
-using System.Security.Cryptography.X509Certificates;
-using System.ComponentModel.Design;
 
-namespace Laboratorio08_jcg
+namespace Laboratorio08_jcg.Controladores
 {
-    static class CentroComercial
+     class LocalControler
     {
+        Form1 fORM1;
+        VER_LOCALES verlocales;
+        
         static public List<Local> locales = new List<Local>();
-
+        public LocalControler(Form fORM1, Form verlocal)
+        {
+            Activarlistalocales();
+            this.fORM1 = fORM1 as Form1;
+            this.verlocales = verlocal as VER_LOCALES;
+        }
 
 
         static void AlmacenarLocal(List<Local> s)      //Serializamos
@@ -66,7 +72,7 @@ namespace Laboratorio08_jcg
 
         public static bool Agregartienda(Tienda t)
         {
-            
+
             Activarlistalocales();
             for (int i = 0; i < locales.Count; i++)
             {
@@ -168,7 +174,7 @@ namespace Laboratorio08_jcg
             }
             for (int i = 0; i < locales.Count; i++)
             {
-                
+
                 if (locales[i].Nombrelocal == nombre)
                 {
                     switch (locales[i].Tipo)
@@ -209,9 +215,5 @@ namespace Laboratorio08_jcg
             return info;
 
         }
-
-        
-
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Laboratorio08_jcg.Controladores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,7 @@ namespace Laboratorio08_jcg
             InitializeComponent();
         }
 
-        private void btn_atras_locales_activos_Click(object sender, EventArgs e)
+        private void btn_atras_locales_activos_Click(object sender, EventArgs e) 
         {
             Close();
             
@@ -31,33 +32,33 @@ namespace Laboratorio08_jcg
         private void btn_ver_Click(object sender, EventArgs e)
         
         {
-            CentroComercial.Activarlistalocales();
+            LocalControler.Activarlistalocales();
             
-            if (CentroComercial.locales.Count == 0)
+            if (LocalControler.locales.Count == 0)
             {
                 MessageBox.Show("NO HAY LOCALES AGREGADOS AUN", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            for (int i = 0; i < CentroComercial.locales.Count; i++)
+            for (int i = 0; i < LocalControler.locales.Count; i++)
             {
-                if (CentroComercial.locales[i].Tipo == 1)
+                if (LocalControler.locales[i].Tipo == 1)
                 {
-                    Cine cine = (Cine)CentroComercial.locales[i];
+                    Cine cine = (Cine)LocalControler.locales[i];
                     listBox_locales_activos.Items.Add(cine.InformacionCine());
                 }
-                if (CentroComercial.locales[i].Tipo == 2)
+                if (LocalControler.locales[i].Tipo == 2)
                 {
-                    Tienda tienda = (Tienda)CentroComercial.locales[i];
+                    Tienda tienda = (Tienda)LocalControler.locales[i];
                     listBox_locales_activos.Items.Add(tienda.InformacionTienda());
                 }
-                if (CentroComercial.locales[i].Tipo == 3)
+                if (LocalControler.locales[i].Tipo == 3)
                 {
-                    Restaurante res = (Restaurante)CentroComercial.locales[i];
+                    Restaurante res = (Restaurante)LocalControler.locales[i];
                     listBox_locales_activos.Items.Add(res.InformacionRestaurante());
                 }
-                if (CentroComercial.locales[i].Tipo == 4)
+                if (LocalControler.locales[i].Tipo == 4)
                 {
-                    Recreacional recrea = (Recreacional)CentroComercial.locales[i];
+                    Recreacional recrea = (Recreacional)LocalControler.locales[i];
                     listBox_locales_activos.Items.Add(recrea.infoRecrea());
                 }
                 

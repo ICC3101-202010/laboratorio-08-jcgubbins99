@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Laboratorio08_jcg.Controladores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -161,7 +162,7 @@ namespace Laboratorio08_jcg
 
                     Tienda t = new Tienda(textBox_nombre_tienda.Text.ToLower(), textBox_nombre_dueño.Text.ToLower(), int.Parse(textBox_id.Text), textBox_horario.Text.ToLower());
                     t.categorias.Add(comboBox1.Text);
-                    CentroComercial.Agregartienda(t);
+                    LocalControler.Agregartienda(t);
                     listacat.Add(comboBox1.Text);
                 }
                 catch
@@ -178,7 +179,7 @@ namespace Laboratorio08_jcg
                     Tienda t = new Tienda(textBox_nombre_tienda.Text.ToLower(), textBox_nombre_dueño.Text.ToLower(), int.Parse(textBox_id.Text), textBox_horario.Text.ToLower());
                     t.categorias.Add(comboBox1.Text);
                     t.categorias.Add(comboBox2.Text);
-                    CentroComercial.Agregartienda(t);
+                    LocalControler.Agregartienda(t);
                 }
                 catch
                 {
@@ -194,7 +195,7 @@ namespace Laboratorio08_jcg
                     t.categorias.Add(comboBox1.Text);
                     t.categorias.Add(comboBox2.Text);
                     t.categorias.Add(comboBox3.Text);
-                    CentroComercial.Agregartienda(t);
+                    LocalControler.Agregartienda(t);
                 }
                 catch
                 {
@@ -212,7 +213,7 @@ namespace Laboratorio08_jcg
                     t.categorias.Add(comboBox2.Text);
                     t.categorias.Add(comboBox3.Text);
                     t.categorias.Add(comboBox4.Text);
-                    CentroComercial.Agregartienda(t);
+                    LocalControler.Agregartienda(t);
                 }
                 catch
                 {
@@ -241,7 +242,7 @@ namespace Laboratorio08_jcg
             try
             {
                 Cine c = new Cine(textBox_nombre_cine.Text.ToLower(), textBox_nombre_dueño_cine.Text.ToLower(), int.Parse(textBox_id_cine.Text), textBox_horario_cine.Text.ToLower(), int.Parse(textBox_numero_de_salas.Text));
-                CentroComercial.Agregarcine(c);
+                LocalControler.Agregarcine(c);
             }
             catch
             {
@@ -301,7 +302,7 @@ namespace Laboratorio08_jcg
             try
             {
                 Restaurante r = new Restaurante(textBox_nombre_lrestau.Text.ToLower(), textBox_dueño_restau.Text.ToLower(), int.Parse(textBox_id_restau.Text), textBox_horario_restau.Text, textBox_mesas_reservadas.Text.ToLower());
-                CentroComercial.Agregarrestau(r);
+                LocalControler.Agregarrestau(r);
             }
             catch
             {
@@ -358,7 +359,7 @@ namespace Laboratorio08_jcg
             try
             {
                 Recreacional re = new Recreacional(textBox_nombre_recreacional.Text.ToLower(), textBox_dueño_recreacional.Text.ToLower(), int.Parse(textBox_id_recreacional.Text), textBox_horario_recreacional.Text.ToLower());
-                CentroComercial.Agregarrecrea(re);
+                LocalControler.Agregarrecrea(re);
             }
             catch
             {
@@ -402,7 +403,7 @@ namespace Laboratorio08_jcg
         {
             listBox1.Items.Clear();
             listBox1.Visible = true;
-            listBox1.Items.Add(CentroComercial.Buscarlocal(textBox1.Text.ToLower()));
+            listBox1.Items.Add(LocalControler.Buscarlocal(textBox1.Text.ToLower()));
             
         }
 
